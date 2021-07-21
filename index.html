@@ -5,6 +5,7 @@
     <title>city-mobil-test</title>
     <link href="style.css" rel="stylesheet" media="all">
     <script src="javascript.js" defer></script>
+
 </head>
 <body>
 <header>
@@ -14,11 +15,25 @@
 <main>
     <aside>
     </aside>
+    <section class="mainTable">
+        <div class="searchTable">
+            <input  id='myInput' onkeyup='searchTable()' type='text' placeholder="Поиск" >
+            <button class="buttonResearch">Найти</button>
+        </div>
 
-    <ul class="post"></ul>
+        <ul id = "post" class="post"></ul>
+        <div id='selectedItem' class="selectedItem"></div>
+
+
+    </section>
+
+
 </main>
 <footer>
 
 </footer>
+<script src="clickCars.js" defer></script>
+<script src="findCars.js" defer></script>
+<script src="sortTable.js" defer></script>
 </body>
 </html>
