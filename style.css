@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono');
-
+.res{
+    height: 50px;
+}
+.div{}
 html{
     height: 100%;
 }
@@ -50,6 +53,12 @@ aside{
     padding: 0;
 }
 .searchTable input{
+    font-family: IBM Plex Mono;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #7B8395;
     height: 28px;
     width: 80%;
     border: 1px solid rgba(198, 209, 221, 0.5);

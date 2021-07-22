@@ -1,11 +1,23 @@
-let chooseCarOut = document.querySelector('.selectedItem')
+window.onload = function() {
 
-let chooseCar = document.getElementById('trow');
+let res = document.querySelector('.res');
+let arrElem = document.getElementsByClassName("trow");
+console.log(arrElem)
+let arrayElem = [];
 
-//chooseCar.onclick = function() {
-  //      alert('popa');
-    //}
+for (let i = 0; i < arrElem.length; i++){
+    arrayElem.push(arrElem[i]);
+    arrElem[i].addEventListener('click', function(e){
+        res.innerHTML = arrayElem.indexOf(e.target);
+    });
+}
+/*let chooseCarOut = document.querySelector('.selectedItem')
 
-
-/*car.innerHTML = '<span class="chooseCar">Выбран автомобиль + $marka + $model + $year + года выпуска</span>'
+let chooseCar = document.getElementsByTagName("tr");
+console.log(chooseCar);
+chooseCar.onclick = function() {
+       alert('popa');
+    }
 */
+
+};
