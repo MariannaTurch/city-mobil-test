@@ -1,5 +1,5 @@
 window.onload = function() {
-
+/*
 let res = document.querySelector('.res');
 let arrElem = document.getElementsByClassName("trow");
 console.log(arrElem)
@@ -11,6 +11,7 @@ for (let i = 0; i < arrElem.length; i++){
         res.innerHTML = arrayElem.indexOf(e.target);
     });
 }
+*/
 /*let chooseCarOut = document.querySelector('.selectedItem')
 
 let chooseCar = document.getElementsByTagName("tr");

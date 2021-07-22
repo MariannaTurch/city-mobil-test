@@ -2,8 +2,8 @@ async function getResponse() {
     let table = await fetch('https://city-mobil.ru/api/cars');
     let content = await table.json()
 
-    let list = document.querySelector('.post')
-    let row
+    let list = document.querySelector('.post');
+    let row;
 
     list.innerHTML = '<table class="datatable"></table>'
     let data = document.querySelector('.datatable')
@@ -27,7 +27,7 @@ async function getResponse() {
     for (key in content.cars)
     {
         row = ""
-        row += `<tr onclick=F() id="trow" class="trow"><th>`+content.cars[key].mark+' '+content.cars[key].model+`</th>`
+        row += `<tr id="trow" class="trow"><th>`+content.cars[key].mark+' '+content.cars[key].model+`</th>`
 
     for (let ttype in content.tariffs_list) {
         row += `<th id="thow">`
@@ -42,10 +42,23 @@ async function getResponse() {
         row += '</tr>'
         data.innerHTML += row
     }
+////////////////////////////// Вывод текста с выбранной пользователем позицией
+    let res = document.querySelector('.res');
+    let arrElem = document.querySelectorAll('.trow');
+    let arrayElem = [];
+    console.log(arrElem)
+
+    for (let i = 0; i < arrElem.length; i++){
+        arrayElem.push(arrElem[i].outerText);
+        arrElem[i].addEventListener('click', function(e){
+            res.innerHTML = arrayElem.indexOf(e.target);
+        });
+    }
+
+    let selectedItem = document.getElementById('selectedItem')
+    selectedItem.value = 'Выбран автомобиль '+ document.getElementsByClassName("trow")[0].innerText + '  года выпуска'
+console.log(document.getElementsByClassName("trow")[0].innerText)
 }
 getResponse()
 
-//Нажатие на строку таблицы и вывод в поле под таблицей
-function F() {
-let fde=0;
-}
+
