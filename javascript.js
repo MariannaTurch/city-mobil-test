@@ -7,7 +7,6 @@ async function getResponse() {
 
     list.innerHTML = '<table id="datatable" class="datatable"></table>'
     let data = document.querySelector('.datatable')
-//console.log(content)
     let key
 
     row = ""
@@ -75,37 +74,63 @@ async function getResponse() {
     }
 /////////////////////////////// Сортировка по алфавиту
     document.querySelector("#sortTable").onclick = function(){
-        let table, rows, switching, i, x, y, shouldSwitch;
-        table = document.getElementById("datatable");
-        switching = true;
-        while (switching) {
-            rows = document.getElementsByClassName("trow");
-            console.log(rows);
-            for (i = 1; i < (rows.length - 1); i++) {
-                shouldSwitch = false;
-                x = rows[i].getElementsByTagName("th")[0];
-                y = rows[i + 1].getElementsByTagName("th")[0];
-                if (switching) {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
+        var reverse=false;
+      
+            var table, rows, switching, i, x, y, shouldSwitch;
+//console.log("erv" + reverse);
+            table = document.getElementsByClassName("datatable")[0];
+            switching = true;
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+
+// Start by saying: no switching is done:
+                switching = false;
+                rows = document.getElementsByClassName("trow");
+
+//rows[0].parentNode.insertBefore(rows[0 + 1], rows[0]);
+                /* Loop through all table rows (except the
+                first, which contains table headers): */
+                for (i = 0; i < (rows.length - 1); i++) {
+
+// Start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /* Get the two elements you want to compare,
+                    one from current row and one from the next: */
+                    x = rows[i].getElementsByTagName("th")[0];
+                    y = rows[i + 1].getElementsByTagName("th")[0];
+// Check if the two rows should switch place:
+// console.log(x.innerHTML.toLowerCase()+ "and" + y.innerHTML.toLowerCase());
+                    if (reverse) {
+                        if ( (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) ) {
+// If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+// console.log("swr");
+                        }
+                    } else {
+                        if ( (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) ) {
+// If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+// console.log("swnr");
+                        }
                     }
 
-                } else {
+                    if (shouldSwitch) {
+                        /* If a switch has been marked, make the switch
+                        and mark that a switch has been done: */
+// console.log("shouldSwitch");
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
+
+
+                        switching = true;
                     }
-
                 }
 
             }
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = !switching;;
-            }
-        }
+
+            reverse=!reverse;
+
     }
 }
 getResponse();

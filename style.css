@@ -21,7 +21,6 @@ header{
 h1{
     font-family: IBM Plex Mono;
     font-size: 36px;
-    text-align: center;
     color: #707070;
 }
 main{
@@ -31,6 +30,9 @@ main{
     margin-bottom: 50px;
 }
 aside{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20%;
     background-color: #c2bfb5;
 }
@@ -149,4 +151,13 @@ footer{
     height: 50px;
     width: 100%;
     align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    font-family: IBM Plex Mono;
+    font-size: 24px;
+    color: #707070;
+    margin: 0;
 }
